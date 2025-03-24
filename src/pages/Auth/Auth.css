@@ -1,0 +1,280 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: top;
+  animation: gridMove 20s linear infinite;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 12px;
+  padding: 3rem;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.auth-header h2 {
+  font-size: 2.5rem;
+  color: #00ff88;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.scanner-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #00ff88;
+  bottom: -10px;
+  animation: scan 2s linear infinite;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.label-text {
+  color: #00ff88;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 255, 136, 0.05);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cyber-input-border {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 8px;
+  pointer-events: none;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 95%, 5% 95%, 5% 100%, 0 100%);
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.eye-icon {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #00ff88;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.eye-inner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #00ff88;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.eye-icon.open {
+  transform: scale(1.1);
+}
+
+.eye-icon.open .eye-inner {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #00ff88;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-glitch {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+
+.submit-btn:hover .btn-glitch {
+  left: 100%;
+}
+
+.btn-border-1, .btn-border-2 {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #00ff88;
+  pointer-events: none;
+}
+
+.btn-border-1 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 95%, 5% 95%, 5% 100%, 0 100%);
+}
+
+.btn-border-2 {
+  clip-path: polygon(0 0, 5% 0, 5% 5%, 95% 5%, 95% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .auth-header h2 {
+    font-size: 2rem;
+  }
+}
+
+.social-login {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.google-btn, .facebook-btn {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.google-btn:hover, .facebook-btn:hover {
+  transform: translateY(-2px);
+  border-color: #00ff88;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+.google-btn svg, .facebook-btn svg {
+  font-size: 1.5rem;
+}
+
+.or-divider {
+  text-align: center;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: rgba(0, 255, 136, 0.3);
+}
+
+.or-divider::before { left: 0; }
+.or-divider::after { right: 0; }
+
+.or-text {
+  background: rgba(10, 10, 10, 0.9);
+  padding: 0 1rem;
+  color: #00ff88;
+}

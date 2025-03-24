@@ -1,0 +1,226 @@
+.home {
+  min-height: 100vh;
+  
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speed-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 48%,
+    rgba(0, 255, 136, 0.1) 49%,
+    transparent 51%,
+    transparent 100%
+  );
+  background-size: 200px 100%;
+  animation: speedLines 1s linear infinite;
+  opacity: 0.5;
+}
+
+.cyber-grid {
+  position: absolute;
+  inset: -100%;
+  background: 
+    linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(1000px) rotateX(60deg);
+  animation: gridFloat 20s linear infinite;
+}
+
+.hero-content {
+  width: 90%;
+  max-width: 1400px;
+  z-index: 1;
+  transition: transform 0.3s ease-out;
+}
+
+.logo-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.neon-text {
+  font-size: 7rem;
+  font-weight: 900;
+  color: #00ff88;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  text-shadow: 
+    0 0 20px rgba(0, 255, 136, 0.8),
+    0 0 40px rgba(0, 255, 136, 0.4),
+    0 0 60px rgba(0, 255, 136, 0.2);
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+.bike-silhouette {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 150px;
+  background: url('/path-to-bike-silhouette.png') no-repeat center;
+  opacity: 0.2;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.5));
+}
+
+.tagline {
+  font-size: 2.8rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #00ff88, #00ccff, #00ff88);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 4rem;
+  animation: shine 3s linear infinite;
+}
+
+.action-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 4rem 0;
+}
+
+.action-btn {
+  padding: 1.5rem 3rem;
+  font-size: 1.4rem;
+  text-decoration: none;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.join {
+  background: linear-gradient(45deg, #00ff88, #00ccff);
+  color: #000;
+  font-weight: bold;
+}
+
+.explore {
+  background: transparent;
+  border: 2px solid #ff3366;
+  color: #ff3366;
+}
+
+.btn-code {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.btn-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+}
+
+.action-btn:hover .btn-glow {
+  opacity: 0.5;
+  animation: buttonGlow 1s ease-in-out infinite;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 6rem;
+}
+
+.feature-card {
+  background: rgba(0, 255, 136, 0.05);
+  padding: 3rem;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  transition: all 0.4s ease;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-size: 2rem;
+  color: #00ff88;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+}
+
+.feature-card:hover .card-overlay {
+  transform: translateX(100%);
+}
+
+@keyframes neonPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes speedLines {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 0; }
+}
+
+@keyframes buttonGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@media (max-width: 1200px) {
+  .neon-text { font-size: 5rem; }
+  .tagline { font-size: 2.2rem; }
+}
+
+@media (max-width: 768px) {
+  .neon-text { font-size: 3.5rem; }
+  .tagline { font-size: 1.8rem; }
+  .action-container { flex-direction: column; }
+  .feature-grid { grid-template-columns: 1fr; }
+}

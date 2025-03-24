@@ -1,0 +1,142 @@
+.ride-tracker-page {
+  min-height: 100vh;
+  padding: 2rem;
+  background: #0a0a0a;
+  color: white;
+}
+
+.category-selection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #00ff88, #00a6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro-text {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.category-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #00ff88;
+}
+
+.category-card h3 {
+  color: #00ff88;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.category-card p {
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+.distance-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 255, 136, 0.1);
+  border-radius: 20px;
+  color: #00ff88;
+}
+
+.ride-details {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+}
+
+.ride-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ride-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  color: #888;
+}
+
+.slots-info {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(0, 255, 136, 0.1);
+  border-radius: 8px;
+}
+
+.join-ride-btn,
+.register-pillion-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #00ff88;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.join-ride-btn:hover,
+.register-pillion-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.pillion-features {
+  display: grid;
+  gap: 1rem;
+}
+
+.feature-item {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.feature-item span {
+  color: #00ff88;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
