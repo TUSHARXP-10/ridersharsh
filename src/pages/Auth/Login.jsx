@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../../services/authService';
+import { loginUser, signInWithGoogle } from '../../services/authService';
 import { auth } from '../../firebase/config';
 import './Auth.css';
 
@@ -84,6 +84,33 @@ const Login = () => {
             style={{ marginTop: '1rem' }}
           >
             Test Connection
+          </button>
+          <button 
+            type="button" 
+            onClick={async () => {
+              setLoading(true);
+              setError('');
+              try {
+                const result = await signInWithGoogle();
+                if (result.success) {
+                  console.log('Google login successful:', result.user);
+                  navigate('/ride-tracker');
+                } else {
+                  setError(result.error);
+                }
+              } catch (err) {
+                setError('Google login failed: ' + err.message);
+              }
+              setLoading(false);
+            }}
+            className="google-signin-btn"
+            style={{ marginTop: '1rem' }}
+            disabled={loading}
+          >
+            <span className="btn-text">Sign in with Google</span>
+            <div className="btn-glitch"></div>
+            <div className="btn-border-1"></div>
+            <div className="btn-border-2"></div>
           </button>
         </form>
       </div>
