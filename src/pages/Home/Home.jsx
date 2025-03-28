@@ -1,28 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './Home.css';
 
 const Home = () => {
-  const bikeRef = useRef(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (bikeRef.current) {
-        const { left, top, width, height } = bikeRef.current.getBoundingClientRect();
-        const x = (e.clientX - left) / width - 0.5;
-        const y = (e.clientY - top) / height - 0.5;
-        bikeRef.current.style.transform = `
-          perspective(1000px)
-          rotateY(${x * 20}deg)
-          rotateX(${-y * 20}deg)
-        `;
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   return (
     <div className="home">
       <div className="speed-lines"></div>
@@ -59,6 +38,15 @@ const Home = () => {
             <div className="card-overlay"></div>
           </Link>
         </div>
+      </div>
+      <div className="badge-container">
+        <div className="skill-badge" data-level="beginner">
+          <img src="/images/beginner-badge.png" alt="Beginner" className="badge-img" />
+          <div className="badge-glow"></div>
+          <div className="badge-particles"></div>
+          <div className="badge-label">Beginner</div>
+        </div>
+        {/* ... other badges ... */}
       </div>
     </div>
   );

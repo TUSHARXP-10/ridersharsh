@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home/Home'
+import Home from './pages/Home/Home.jsx'
 import RideTracker from './components/RideTracker/RideTracker'
 import Navbar from './components/Navbar/Navbar'
 import Login from './pages/Auth/Login'
@@ -9,6 +9,7 @@ import Blog from './pages/Blog/Blog'
 import Contact from './pages/Contact/Contact'
 import { AuthProvider } from './context/AuthContext.jsx';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import TrackEvents from './pages/TrackEvents/TrackEvents';
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/tire-selection" element={<RideTracker />} />
+            // Add this to your routes
+            <Route path="/track-events" element={<TrackEvents />} />
           </Routes>
           <a href="https://chat.whatsapp.com/EcupFGHSwao7T5mAoYjJv8" class="community-rides">🏁 Community Rides Join weekly adventures</a>
         </div>

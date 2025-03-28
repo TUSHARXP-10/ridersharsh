@@ -1,0 +1,242 @@
+.track-events-container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 100px 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-grid {
+  position: absolute;
+  inset: -100%;
+  background: 
+    linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(1000px) rotateX(60deg);
+  animation: gridFloat 20s linear infinite;
+}
+
+.speed-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 48%,
+    rgba(0, 255, 136, 0.1) 49%,
+    transparent 51%,
+    transparent 100%
+  );
+  background-size: 200px 100%;
+  animation: speedLines 1s linear infinite;
+  opacity: 0.3;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.neon-title {
+  font-size: 3rem;
+  color: #00ff88;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 
+    0 0 20px rgba(0, 255, 136, 0.8),
+    0 0 40px rgba(0, 255, 136, 0.4);
+}
+
+.stats-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: rgba(0, 255, 136, 0.05);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  color: #00ff88;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #fff;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.event-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 2px solid rgba(0, 255, 136, 0.3);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background: #00ff88;
+  color: #000;
+  font-weight: bold;
+}
+
+.tab-btn:hover:not(.active) {
+  border-color: #00ff88;
+  color: #00ff88;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.event-card {
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+}
+
+.event-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.event-status[data-status="live"] {
+  background: rgba(255, 0, 86, 0.2);
+  color: #ff0056;
+}
+
+.event-status[data-status="upcoming"] {
+  background: rgba(0, 255, 136, 0.2);
+  color: #00ff88;
+}
+
+.event-card h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.event-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail {
+  color: #fff;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.join-event-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(45deg, #00ff88, #00ccff);
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.join-event-btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.join-event-btn:hover .btn-glow {
+  opacity: 0.5;
+  animation: buttonGlow 1s ease-in-out infinite;
+}
+
+@keyframes gridFloat {
+  0% { transform: perspective(1000px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(1000px) rotateX(60deg) translateY(40px); }
+}
+
+@keyframes speedLines {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 0; }
+}
+
+@keyframes buttonGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+  .track-events-container {
+    padding: 80px 1rem 1rem;
+  }
+  
+  .neon-title {
+    font-size: 2rem;
+  }
+  
+  .event-tabs {
+    flex-direction: column;
+  }
+  
+  .stats-panel {
+    grid-template-columns: 1fr;
+  }
+}
