@@ -1,0 +1,227 @@
+.tire-selection-container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-grid {
+  position: absolute;
+  inset: -100%;
+  background: 
+    linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(1000px) rotateX(60deg);
+  animation: gridFloat 20s linear infinite;
+}
+
+.speed-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 48%,
+    rgba(0, 255, 136, 0.1) 49%,
+    transparent 51%,
+    transparent 100%
+  );
+  background-size: 200px 100%;
+  animation: speedLines 1s linear infinite;
+  opacity: 0.3;
+}
+
+.selection-title {
+  font-size: 3rem;
+  color: #00ff88;
+  text-align: center;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.badges-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.badge-card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(0, 255, 136, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.badge-card img {
+  width: 100%;
+  height: 70%;
+  object-fit: contain;
+  padding: 2rem;
+  transition: transform 0.4s ease;
+}
+
+.badge-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.9);
+  text-align: center;
+}
+
+.badge-info h3 {
+  color: #00ff88;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-info p {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.hover-effect {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.badge-card:hover {
+  transform: translateY(-20px) scale(1.05);
+  border-color: #00ff88;
+  box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+}
+
+.badge-card:hover img {
+  transform: scale(1.1);
+}
+
+.badge-card:hover .hover-effect {
+  opacity: 1;
+  animation: pulseGlow 2s infinite;
+}
+
+.badge-card.selected {
+  transform: translateY(-20px) scale(1.05);
+  border-color: #ff3366;
+  box-shadow: 0 20px 40px rgba(255, 51, 102, 0.2);
+}
+
+.rides-container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  animation: fadeIn 0.5s ease;
+}
+
+.rides-container h2 {
+  color: #00ff88;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.rides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.ride-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.ride-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+}
+
+.ride-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ride-header h3 {
+  color: #00ff88;
+  font-size: 1.3rem;
+}
+
+.distance {
+  color: #fff;
+  background: rgba(0, 255, 136, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.ride-details {
+  color: #fff;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.join-ride {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(45deg, #00ff88, #00ccff);
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.join-ride:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+}
+
+@keyframes gridFloat {
+  0% { transform: perspective(1000px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(1000px) rotateX(60deg) translateY(40px); }
+}
+
+@keyframes speedLines {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .badges-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .badge-card {
+    width: 280px;
+    height: 380px;
+  }
+}

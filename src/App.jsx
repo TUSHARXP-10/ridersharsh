@@ -10,6 +10,7 @@ import Contact from './pages/Contact/Contact'
 import { AuthProvider } from './context/AuthContext.jsx';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import TrackEvents from './pages/TrackEvents/TrackEvents';
+import TireSelection from './components/TireSelection/TireSelection';  // Add this import
 
 function App() {
   return (
@@ -31,15 +32,14 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/tire-selection" element={<RideTracker />} />
-            // Add this to your routes
+            <Route path="/tire-selection" element={<TireSelection />} />
             <Route path="/track-events" element={<TrackEvents />} />
           </Routes>
-          <a href="https://chat.whatsapp.com/EcupFGHSwao7T5mAoYjJv8" class="community-rides">🏁 Community Rides Join weekly adventures</a>
+          <a href="https://chat.whatsapp.com/EcupFGHSwao7T5mAoYjJv8" className="community-rides">🏁 Community Rides Join weekly adventures</a>
         </div>
       </Router>
     </AuthProvider>
   );
 }
 
-export default App
+export default App;

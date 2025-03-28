@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
+  const bikeRef = useRef(null);  // Add this line
+  
+  const handleLevelSelect = (level) => {
+    navigate(`/tire-selection?level=${level}`);
+  };
+
   return (
     <div className="home">
       <div className="speed-lines"></div>
@@ -38,15 +46,43 @@ const Home = () => {
             <div className="card-overlay"></div>
           </Link>
         </div>
-      </div>
-      <div className="badge-container">
-        <div className="skill-badge" data-level="beginner">
-          <img src="/images/beginner-badge.png" alt="Beginner" className="badge-img" />
-          <div className="badge-glow"></div>
-          <div className="badge-particles"></div>
-          <div className="badge-label">Beginner</div>
+        <div className="badges-grid">
+          <button onClick={() => handleLevelSelect('beginner')} className="level-badge beginner">
+            <img src="/BEGINEER BADGE.png" alt="Beginner" className="badge-icon" />
+            <h2 className="badge-title">Beginner</h2>
+            <div className="badge-range">0-80km Range</div>
+            <div className="badge-specs">
+              <span>Comfort Focused</span>
+              <span>Urban Riding</span>
+            </div>
+            <div className="badge-border"></div>
+            <div className="badge-glow"></div>
+          </button>
+
+          <button onClick={() => handleLevelSelect('intermediate')} className="level-badge intermediate">
+            <img src="/intermediate BADGE.png" alt="Intermediate" className="badge-icon" />
+            <h2 className="badge-title">Intermediate</h2>
+            <div className="badge-range">80-200km Range</div>
+            <div className="badge-specs">
+              <span>Performance Balance</span>
+              <span>Mixed Terrain</span>
+            </div>
+            <div className="badge-border"></div>
+            <div className="badge-glow"></div>
+          </button>
+
+          <button onClick={() => handleLevelSelect('expert')} className="level-badge expert">
+            <img src="/EXPERT BADGE.png" alt="Expert" className="badge-icon" />
+            <h2 className="badge-title">Expert</h2>
+            <div className="badge-range">200-400km Range</div>
+            <div className="badge-specs">
+              <span>Maximum Performance</span>
+              <span>Endurance Focus</span>
+            </div>
+            <div className="badge-border"></div>
+            <div className="badge-glow"></div>
+          </button>
         </div>
-        {/* ... other badges ... */}
       </div>
     </div>
   );

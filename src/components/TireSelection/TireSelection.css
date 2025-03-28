@@ -1,0 +1,191 @@
+.tire-selection-container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 100px 2rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cyber-grid {
+  position: absolute;
+  inset: -100%;
+  background: 
+    linear-gradient(90deg, rgba(255, 51, 102, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255, 51, 102, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(1000px) rotateX(60deg);
+  animation: gridFloat 20s linear infinite;
+}
+
+.speed-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 48%,
+    rgba(255, 51, 102, 0.1) 49%,
+    transparent 51%,
+    transparent 100%
+  );
+  background-size: 200px 100%;
+  animation: speedLines 1s linear infinite;
+  opacity: 0.3;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.neon-title {
+  font-size: 4rem;
+  color: #ff3366;
+  text-align: center;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 
+    0 0 20px rgba(255, 51, 102, 0.8),
+    0 0 40px rgba(255, 51, 102, 0.4);
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.level-badge {
+  position: relative;
+  height: 400px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.badge-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.level-badge:hover .badge-inner {
+  transform: translateY(-20px) rotateY(15deg);
+}
+
+.badge-front {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.9);
+  border: 2px solid rgba(255, 51, 102, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backface-visibility: hidden;
+}
+
+.badge-front img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 20px rgba(255, 51, 102, 0.5));
+}
+
+.badge-content {
+  text-align: center;
+}
+
+.badge-content h3 {
+  color: #ff3366;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.badge-content p {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.specs span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.badge-glow {
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(circle at 50% -20%, rgba(255, 51, 102, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+.level-badge:hover .badge-glow {
+  opacity: 1;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.badge-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.level-badge.selected .badge-inner {
+  transform: translateY(-30px);
+  box-shadow: 0 30px 60px rgba(255, 51, 102, 0.4);
+}
+
+.level-badge.selected .badge-front {
+  border-color: #ff3366;
+  box-shadow: 0 0 30px rgba(255, 51, 102, 0.3);
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes gridFloat {
+  0% { transform: perspective(1000px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(1000px) rotateX(60deg) translateY(40px); }
+}
+
+@keyframes speedLines {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 0; }
+}
+
+@media (max-width: 768px) {
+  .neon-title {
+    font-size: 2.5rem;
+  }
+  
+  .badges-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .level-badge {
+    height: 350px;
+  }
+}
