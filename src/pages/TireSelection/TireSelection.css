@@ -1,4 +1,5 @@
 .tire-selection-container {
+    
   min-height: 100vh;
   background: #0a0a0a;
   padding: 4rem 2rem;
@@ -34,194 +35,140 @@
 }
 
 .selection-title {
-  font-size: 3rem;
-  color: #00ff88;
+  color: #ff3366;
+  font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   text-transform: uppercase;
-  text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  text-shadow: 0 0 15px rgba(255, 51, 102, 0.5);
 }
 
-.badges-container {
+.level-cards {
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  margin-bottom: 4rem;
+  gap: 2rem;
+  margin: 2rem 0 4rem;
 }
 
-.badge-card {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px solid rgba(0, 255, 136, 0.3);
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.badge-card img {
-  width: 100%;
-  height: 70%;
-  object-fit: contain;
-  padding: 2rem;
-  transition: transform 0.4s ease;
-}
-
-.badge-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.9);
+.level-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  width: 250px;
   text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.badge-info h3 {
+.level-card.beginner {
+  border-color: #ff3366;
+  box-shadow: 0 0 20px rgba(255, 51, 102, 0.2);
+}
+
+.level-card.intermediate, .level-card.expert {
+  border-color: #00ff88;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+.level-card.active, .level-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+}
+
+.level-card h3 {
+  color: #ff3366;
+  font-size: 1.8rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.level-card.intermediate h3, .level-card.expert h3 {
   color: #00ff88;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
 }
 
-.badge-info p {
+.level-card .range {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.level-details {
+  margin-top: 1rem;
+}
+
+.level-card p {
   color: #fff;
   opacity: 0.8;
-}
-
-.hover-effect {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.4) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.badge-card:hover {
-  transform: translateY(-20px) scale(1.05);
-  border-color: #00ff88;
-  box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
-}
-
-.badge-card:hover img {
-  transform: scale(1.1);
-}
-
-.badge-card:hover .hover-effect {
-  opacity: 1;
-  animation: pulseGlow 2s infinite;
-}
-
-.badge-card.selected {
-  transform: translateY(-20px) scale(1.05);
-  border-color: #ff3366;
-  box-shadow: 0 20px 40px rgba(255, 51, 102, 0.2);
-}
-
-.rides-container {
-  max-width: 1200px;
-  margin: 4rem auto;
-  animation: fadeIn 0.5s ease;
-}
-
-.rides-container h2 {
-  color: #00ff88;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.rides-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.ride-card {
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  border-radius: 15px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.ride-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
-}
-
-.ride-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.ride-header h3 {
-  color: #00ff88;
-  font-size: 1.3rem;
-}
-
-.distance {
-  color: #fff;
-  background: rgba(0, 255, 136, 0.2);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
+  margin: 0.3rem 0;
   font-size: 0.9rem;
 }
 
-.ride-details {
-  color: #fff;
-  opacity: 0.8;
-  margin-bottom: 1.5rem;
+.level-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
 }
 
-.join-ride {
-  width: 100%;
-  padding: 0.8rem;
-  background: linear-gradient(45deg, #00ff88, #00ccff);
-  border: none;
-  border-radius: 8px;
-  color: #000;
-  font-weight: bold;
+.view-routes-btn {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1rem;
+  background: transparent;
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: bold;
+  display: none; /* Hide by default, show on hover */
 }
 
-.join-ride:hover {
+.level-card:hover .view-routes-btn {
+  display: block;
+}
+
+.view-routes-btn:hover {
+  background: rgba(0, 255, 136, 0.1);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
 }
 
-@keyframes gridFloat {
-  0% { transform: perspective(1000px) rotateX(60deg) translateY(0); }
-  100% { transform: perspective(1000px) rotateX(60deg) translateY(40px); }
-}
-
-@keyframes speedLines {
-  0% { background-position: 0 0; }
-  100% { background-position: 200px 0; }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.05); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 1024px) {
-  .badges-container {
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .level-cards {
     flex-direction: column;
     align-items: center;
   }
   
-  .badge-card {
-    width: 280px;
-    height: 380px;
+  .level-card {
+    width: 100%;
+    max-width: 300px;
   }
+}
+
+.event-description {
+  margin: 10px 0;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  line-height: 1.4;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.event-card[data-status="coming soon"] {
+  border-color: #9c27b0;
+}
+
+.event-status[data-status="coming soon"] {
+  background-color: #9c27b0;
+}
+
+.join-event-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }

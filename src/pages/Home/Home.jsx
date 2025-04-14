@@ -39,10 +39,19 @@ const Home = () => {
             <p>Join weekly adventures</p>
             <div className="card-overlay"></div>
           </Link>
-          <Link to="/events" className="feature-card events">
+          
+          <Link 
+            to="/tire-selection?tab=events" 
+            state={{ fromFeatureCard: true }} 
+            className="feature-card events" 
+            data-discover="true"
+          >
             <div className="card-icon">⚡</div>
             <h3>Track Events</h3>
-            <p>Real-time updates</p>
+            <p>Real-time updates on upcoming rides</p>
+            <div className="event-preview">
+              <div className="mini-countdown">Next: 3d 12h</div>
+            </div>
             <div className="card-overlay"></div>
           </Link>
         </div>
